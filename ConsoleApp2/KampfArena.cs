@@ -43,6 +43,8 @@ namespace ConsoleApp2
         {
             w1.Angriff(w2);
             w2.Angriff(w1);
+            // test ob sich hier was ändert im push
+
             //if (ErsterDerZuschlägt(w1, w2).Angriff(w2) == w1.Angriff(w2))
             //{
             //    w2.Angriff(w1);
