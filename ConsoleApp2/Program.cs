@@ -11,8 +11,8 @@ namespace ConsoleApp2
 
             KaempferBase marcel = new Berserker("marcel", 60, 20, 20, 1000 );
             KaempferBase johnny = new Berserker("johnny", 80, 10, 10, 500);
-            KampfArena krefelderring = new KampfArena(marcel, johnny);
-            krefelderring.StartKampf();
+            KampfArena arena = new KampfArena(marcel, johnny);
+            arena.StartKampf();
 
 
         }

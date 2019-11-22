@@ -14,15 +14,15 @@ namespace ConsoleApp2
         }
 
 
-        KaempferBase ErsterDerZuschlägt(KaempferBase w1, KaempferBase w2)
+        KaempferBase ErsterDerZuschlägt()
         {
-            if (w1.Geschwindigkeit > w2.Geschwindigkeit)
+            if (_krieger1.Geschwindigkeit > _krieger2.Geschwindigkeit)
             {
-                return w1;
+                return _krieger1;
             }
-            else if (w2.Geschwindigkeit > w1.Geschwindigkeit)
+            else if (_krieger2.Geschwindigkeit > _krieger1.Geschwindigkeit)
             {
-                return w2;
+                return _krieger2;
             }
             else
             {
@@ -30,19 +30,33 @@ namespace ConsoleApp2
                 int number = rnd.Next(0, 1);
                 if (number == 0)
                 {
-                    return w1;
+                    return _krieger1;
                 }
                 else
                 {
-                    return w2;
+                    return _krieger2;
                 }
             }
         }
 
-        void Fight(KaempferBase w1, KaempferBase w2)
+        void Fight()
         {
-            w1.Angriff(w2);
-            w2.Angriff(w1);
+            
+            switch (kaempfer)
+            {
+                case _krieger1:
+                    _krieger2.Angriff(_krieger1);
+                    break;
+                case _krieger2:
+                    _krieger1.Angriff(_krieger2);
+                    break;
+                default:
+                    Console.WriteLine("default");
+                    break;
+            }
+
+            _krieger1.Angriff(_krieger2);
+            _krieger2.Angriff(_krieger1);
             // test ob sich hier was ändert im push
 
             //if (ErsterDerZuschlägt(w1, w2).Angriff(w2) == w1.Angriff(w2))

@@ -24,8 +24,8 @@ namespace ConsoleApp2
 
         public virtual void Angriff(KaempferBase gegner)
         {
-            double schaden = this.Angriffskraft * (gegner.Verteidigungskraft / 100);
-            global::System.Console.WriteLine(this.Name + " macht schaden " + schaden + " an "+ gegner.Name);
+            double schaden = this.Angriffskraft * (1 -(gegner.Verteidigungskraft / 100));
+            Console.WriteLine(this.Name + " macht schaden " + schaden + " an "+ gegner.Name);
             gegner.Leben = gegner.Leben - schaden;
         }
 
