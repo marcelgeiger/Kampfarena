@@ -4,32 +4,43 @@ namespace ConsoleApp2
 {
     class Schurke : KaempferBase
     {
-        Random rnd = new Random();
-        
-        //Leben
-        //Angriff
-        //Def
-        //Gesch
-        //
-        
-        public override void Fähigkeit()
-        {
-            // weicht aus
+        // 50% mehr Speed
+        //double schaden;
 
+
+        public Schurke(int leben, int atk, int speed, int def, string name)
+        {
+            this.Leben = (leben * 1);
+            this.Angriffskraft = (atk * 1);
+            this.Verteidigungskraft = (def * 0.8);
+            this.Geschwindigkeit = (speed * 1.5);
+            this.Name = name;
         }
 
-        public override void Angriff(KaempferBase gegner)
+        public override bool KannFähigkeitBenutzen()
         {
-            //double schaden;
-            ////33% kritischer treffer = 2 * Schaden
-            //if (rnd.Next(0, 2) == 0)
-            //{
+            // Chance auf doppelten Angriff
+            // 40%
+            Random rnd = new Random();
+            if (rnd.Next(0, 9) < 4)
+            {
+                return true;
+            }
 
-            //    // 1.8 - 2 facher schaden
-            //    return schaden = Angriffskraft * (rnd.Next(8,10) /10) * 2;
-            //}
-   
-            //return schaden = this.Angriffskraft - gegner.Abwehr();
+            return false;
+        }
+
+        public override void Klassenfähigkeit(KaempferBase gegner)
+        {
+           KritischerAngriff(gegner);
+        }
+
+        void KritischerAngriff(KaempferBase gegner)
+        {
+            double schaden = 2 * (this.Angriffskraft * (1 - (gegner.Verteidigungskraft / 100)));
+            gegner.Leben = gegner.Leben - schaden;
+            Console.WriteLine("{0} macht {1} schaden ", gegner.Name, schaden);
+            Console.WriteLine("{0} hat {1} HP", gegner.Name, gegner.Leben);
         }
     }
 }

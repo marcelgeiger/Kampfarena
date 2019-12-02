@@ -1,16 +1,71 @@
 ﻿using System;
+using ConsoleApp2.KaempferKlassen;
 
 namespace ConsoleApp2
 {
     class KampfArena
     {
+        private Fähigkeiten _fähigkeit;
+
         private KaempferBase _krieger1;
         private KaempferBase _krieger2;
 
-        public KampfArena(KaempferBase krieger1, KaempferBase krieger2)
+        public KampfArena(KaempferBase k1, KaempferBase k2)
         {
-            _krieger1 = krieger1;
-            _krieger2 = krieger2;
+            _krieger1 = k1;
+            _krieger2 = k2;
+
+        }
+        
+
+
+
+        public void Attack(KaempferBase angreifer, KaempferBase gegner)
+        {
+            if (gegner is Tank)
+            {
+                
+            }
+
+            if (angreifer.KannFähigkeitBenutzen())
+            {
+                angreifer.Klassenfähigkeit(gegner);
+            }
+            else
+            {
+                double schaden = angreifer.Angriffskraft * (1 - (gegner.Verteidigungskraft / 100));
+                gegner.Leben = gegner.Leben - schaden;
+                Console.WriteLine("{0} macht {1} schaden ", angreifer.Name, schaden);
+                Console.WriteLine("{0} hat {1} HP", gegner.Name, gegner.Leben);
+            }
+         
+                
+           
+        }
+        
+        public void Fight()
+        {
+            var zweiter = (ErsterDerZuschlägt() == _krieger1) ? _krieger2 : _krieger1;
+
+
+            Attack(ErsterDerZuschlägt(), zweiter);
+            if (zweiter.Leben > 0)
+            {
+                Attack(zweiter, ErsterDerZuschlägt());
+                if (ErsterDerZuschlägt().Leben < 0)
+                {
+                    Console.WriteLine("{0} hat gewonnen", zweiter.Name);
+                    return;
+                }
+            }
+            else
+            {
+                Console.WriteLine("{0} hat gewonnen", ErsterDerZuschlägt().Name);
+                return;
+            }
+            // rekusiver Aufruf
+
+            Fight();
         }
 
         KaempferBase ErsterDerZuschlägt()
@@ -36,40 +91,6 @@ namespace ConsoleApp2
                     return _krieger2;
                 }
             }
-        }
-        
-        public void Fight()
-        {
-
-            KaempferBase erster = ErsterDerZuschlägt();
-            KaempferBase zweiter;
-
-            // jean
-
-            if (erster == _krieger1)
-            {
-                zweiter = _krieger2;
-            }
-            else
-            {
-                zweiter = _krieger1;
-            }
-
-            erster.Angriff(zweiter);
-            Console.WriteLine("");
-            if (zweiter.Leben <= 0)
-            {
-                Console.WriteLine((zweiter.Name + " is dead"));
-                return;
-            }
-            zweiter.Angriff(erster);
-            if (erster.Leben <= 0)
-            {
-                Console.WriteLine((erster.Name + " is dead"));
-                return;
-            }
-            // rekusiver Aufruf
-            Fight();
         }
     }
 }

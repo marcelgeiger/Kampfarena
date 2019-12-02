@@ -2,23 +2,38 @@
 
 namespace ConsoleApp2
 {
-    class Tank : KaempferBase
+   public class Tank : KaempferBase
     {
-       
-        public override void Fähigkeit()
+        //Doppelt Leben
+        //0.4 Angriff
+        
+        //kann Angriff blockieren
+
+        public Tank(int leben, int atk, int speed, int def)
         {
-            // Chance einen Angriff komplett zu blocken
-            // leben erhöht
-            // 
-            throw new NotImplementedException();
+            this.Leben = (leben * 1.5);
+            this.Angriffskraft = (atk * 0.4);
+            this.Verteidigungskraft = (def * 1);
+            this.Geschwindigkeit = (speed * 0.9);
         }
 
-        public override void Angriff(KaempferBase gegner)
+        public int Block { get; set; }
+
+        public override bool KannFähigkeitBenutzen()
         {
-            throw new NotImplementedException();
+            //50 % auf Block
+            Random rnd = new Random();
+            if (rnd.Next(0, 9) < 5)
+            {
+                return true;
+            }
+
+            return false;
         }
 
-
-   
+        public override void Klassenfähigkeit(KaempferBase gegner)
+        {
+            Block += 1;
+        }
     }
 }

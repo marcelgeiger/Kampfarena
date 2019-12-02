@@ -6,5 +6,6 @@ namespace ConsoleApp2.KaempferKlassen
 {
     class KaempferFactory
     {
+
     }
 }

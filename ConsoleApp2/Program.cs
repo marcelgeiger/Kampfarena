@@ -12,11 +12,15 @@ namespace ConsoleApp2
             KaempferBase k3;
             KaempferBase k4;
 
-            KaempferBase k1 = new Berserker() { Angriffskraft = 40, Geschwindigkeit = 30, Leben = 200, Name = "tester1", Verteidigungskraft = 25 };
-            KaempferBase k2 = new Berserker() { Angriffskraft = 35, Geschwindigkeit = 31, Leben = 220, Name = "tester2", Verteidigungskraft = 30 };
+            KaempferBase k1 = new Berserker(200,50,30,30, "Berserker");
+            KaempferBase k2 = new Schurke(200, 50, 30, 30, "Schurke");
+
+            KampfArena arena = new KampfArena(k1, k2);
+            arena.Fight();
 
 
 
+            
             Console.WriteLine("Willkommen in der Kampfarena \nMöchtest du gegen einen Freund antreten (1) oder dein Glück allein in der Arena versuchen (2) ?");
 
             int.TryParse(Console.ReadLine(), out int antwort);
@@ -27,9 +31,7 @@ namespace ConsoleApp2
             Console.WriteLine("Spieler 2 ist nun an der reihe");
             k4 = p.DatenfürkriegerSammeln();
 
-            KampfArena arena = new KampfArena(k3, k4);
-            arena.Fight();
-
+         
 
         }
 
@@ -48,31 +50,31 @@ namespace ConsoleApp2
             int.TryParse(Console.ReadLine(), out int atk);
             int.TryParse(Console.ReadLine(), out int def);
             int.TryParse(Console.ReadLine(), out int speed);
-            return SpielerErstellen(hp, atk, speed, def, name, klassentyp);
+            return null;// SpielerErstellen(hp, atk, speed, def, name, klassentyp);
 
         }
 
 
-        private KaempferBase SpielerErstellen(int hp, int atk, int speed, int def, string name, int klassenTyp)
-        {
+        //private KaempferBase SpielerErstellen(int hp, int atk, int speed, int def, string name, int klassenTyp)
+        //{
 
-            KaempferBase kaempfer;
+        //    KaempferBase kaempfer;
 
-            switch (klassenTyp)
-            {
-                case 1:
-                    return kaempfer = new Berserker() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
-                case 2:
-                    return kaempfer = new Magier() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
-                case 3:
-                    return kaempfer = new Schurke() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
-                case 4:
-                    return kaempfer = new Tank() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
-                default:
-                    Console.WriteLine("falsche eingabe");
-                    return null;
-            }
-        }
+        //    //switch (klassenTyp)
+        //    //{
+        //    //    case 1:
+        //    //        return kaempfer = new Berserker() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
+        //    //    case 2:
+        //    //        return kaempfer = new Magier() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
+        //    //    case 3:
+        //    //        return kaempfer = new Schurke() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
+        //    //    case 4:
+        //    //        return kaempfer = new Tank() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
+        //    //    default:
+        //    //        Console.WriteLine("falsche eingabe");
+        //    //        return null;
+        //    //}
+        //}
 
 
         // je höher die schwierigkeit je mehr gegner sind zu besiegen vielleicht?
