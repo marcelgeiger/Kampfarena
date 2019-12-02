@@ -16,14 +16,6 @@ namespace ConsoleApp2
         }
 
 
-        public override double Abwehr()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public Magier(string name, double atk, double def, double speed, double leben) : base(name, atk, def, speed, leben)
-        {
-        }
+   
     }
 }

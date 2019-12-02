@@ -11,12 +11,7 @@ namespace ConsoleApp2
         //Def
         //Gesch
         //
-
-        public Schurke(string name, double atk, double def, double speed, double leben) : base(name, atk, def, speed, leben)
-        {
-            
-        }
-
+        
         public override void Fähigkeit()
         {
             // weicht aus
@@ -36,14 +31,5 @@ namespace ConsoleApp2
    
             //return schaden = this.Angriffskraft - gegner.Abwehr();
         }
-
-        public override double Abwehr()
-        {
-            double block;
-            // hat weniger grundverteidigung
-            return block = this.Verteidigungskraft * 0.7;
-        }
-
-
     }
 }

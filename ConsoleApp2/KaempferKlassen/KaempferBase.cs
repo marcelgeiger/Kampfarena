@@ -4,13 +4,8 @@ namespace ConsoleApp2
 {
     abstract class KaempferBase
     {
-        public KaempferBase(string name, double atk, double def, double speed, double leben)
+        public KaempferBase()
         {
-            this.Leben = leben;
-            this.Angriffskraft = atk;
-            this.Geschwindigkeit = speed;
-            this.Verteidigungskraft = def;
-            this.Name = name;
         }
         public virtual string Name { get; set; }
         public virtual double Leben { get; set; }
@@ -24,15 +19,10 @@ namespace ConsoleApp2
 
         public virtual void Angriff(KaempferBase gegner)
         {
-            double schaden = this.Angriffskraft * (1 -(gegner.Verteidigungskraft / 100));
-            Console.WriteLine(this.Name + " macht schaden " + schaden + " an "+ gegner.Name);
+            double schaden = this.Angriffskraft * (1 - (gegner.Verteidigungskraft / 100));
             gegner.Leben = gegner.Leben - schaden;
+            Console.WriteLine("{0} macht {1} schaden ", this.Name, schaden);
+            Console.WriteLine("{0} hat {1} HP", gegner.Name, gegner.Leben);
         }
-
-        public abstract double Abwehr();
-
-        //  return angrifskraft - verteidigungskrafft;
-
-
     }
 }

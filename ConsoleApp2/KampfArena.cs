@@ -39,55 +39,56 @@ namespace ConsoleApp2
             }
         }
 
-        void Fight()
+
+
+        public void Fight()
         {
-            
-            switch (kaempfer)
+
+            KaempferBase erster = ErsterDerZuschlägt();
+            KaempferBase zweiter;
+
+            if (erster == _krieger1)
             {
-                case _krieger1:
-                    _krieger2.Angriff(_krieger1);
-                    break;
-                case _krieger2:
-                    _krieger1.Angriff(_krieger2);
-                    break;
-                default:
-                    Console.WriteLine("default");
-                    break;
+                zweiter = _krieger2;
+            }
+            else
+            {
+                zweiter = _krieger1;
             }
 
-            _krieger1.Angriff(_krieger2);
-            _krieger2.Angriff(_krieger1);
-            // test ob sich hier was ändert im push
-
-            //if (ErsterDerZuschlägt(w1, w2).Angriff(w2) == w1.Angriff(w2))
-            //{
-            //    w2.Angriff(w1);
-            //}
-            //else
-            //{
-            //    w1.Angriff(w2);
-            //}
-        }
-
-
-        bool CheckGewonnen()
-        {
-            bool sieger = _krieger1.Leben <= 0 || _krieger2.Leben <= 0;
-
-            Console.WriteLine("Spieler 1 Leben: " + _krieger1.Leben);
-            Console.WriteLine("Spieler 2 Leben: " + _krieger2.Leben);
-            return sieger;
-        }
-
-      public  void StartKampf()
-        {
-            do
+            erster.Angriff(zweiter);
+            Console.WriteLine("");
+            if (zweiter.Leben <= 0)
             {
-                Fight(_krieger1, _krieger2);
+                Console.WriteLine((zweiter.Name + " is dead"));
+                return;
+            }
+            zweiter.Angriff(erster);
+            if (erster.Leben <= 0)
+            {
+                Console.WriteLine((erster.Name + " is dead"));
+                return;
+            }
+            Fight();
 
-            } while (!CheckGewonnen());
+
+            //while (k1.Leben > 0 || k2.Leben > 0)
+            //{
+
+            //    k1.Angriff(k2);
+
+            //    if (k2.Leben <= 0)
+            //    {
+            //        return;
+            //    }
+            //    k2.Angriff(k1);
+
+            //}
 
         }
+
+
+
 
     }
 }
