@@ -4,16 +4,16 @@ namespace ConsoleApp2
 {
     class Berserker : KaempferBase
     {
-        public Berserker()
+        public Berserker(int leben, int atk)
         {
-
+            this.Leben = leben;
+            this.Angriffskraft = atk * 1.2;
         }
 
         public override void Fähigkeit()
         {
-
-            // Chance auf Doppelschlag
-
+            // berserker bekommen 20% mehr auf stärke
+            
             throw new NotImplementedException();
         }
     }

@@ -17,9 +17,6 @@ namespace ConsoleApp2
 
 
 
-
-            //   arena.Fight(k1, k2);
-
             Console.WriteLine("Willkommen in der Kampfarena \nMöchtest du gegen einen Freund antreten (1) oder dein Glück allein in der Arena versuchen (2) ?");
 
             int.TryParse(Console.ReadLine(), out int antwort);
@@ -38,7 +35,6 @@ namespace ConsoleApp2
 
         KaempferBase DatenfürkriegerSammeln()
         {
-
             Console.WriteLine("(1) = Berserker\n(2) = Magier\n(3) = Schurke \n(4) = Tank \nInfos zu den jeweiligen Klassen findest du unter (5)");
 
             int.TryParse(Console.ReadLine(), out int klassentyp);

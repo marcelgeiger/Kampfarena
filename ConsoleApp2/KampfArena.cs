@@ -13,7 +13,6 @@ namespace ConsoleApp2
             _krieger2 = krieger2;
         }
 
-
         KaempferBase ErsterDerZuschlägt()
         {
             if (_krieger1.Geschwindigkeit > _krieger2.Geschwindigkeit)
@@ -38,14 +37,14 @@ namespace ConsoleApp2
                 }
             }
         }
-
-
-
+        
         public void Fight()
         {
 
             KaempferBase erster = ErsterDerZuschlägt();
             KaempferBase zweiter;
+
+            // jean
 
             if (erster == _krieger1)
             {
@@ -69,26 +68,8 @@ namespace ConsoleApp2
                 Console.WriteLine((erster.Name + " is dead"));
                 return;
             }
+            // rekusiver Aufruf
             Fight();
-
-
-            //while (k1.Leben > 0 || k2.Leben > 0)
-            //{
-
-            //    k1.Angriff(k2);
-
-            //    if (k2.Leben <= 0)
-            //    {
-            //        return;
-            //    }
-            //    k2.Angriff(k1);
-
-            //}
-
         }
-
-
-
-
     }
 }
