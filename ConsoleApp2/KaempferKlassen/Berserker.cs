@@ -2,7 +2,7 @@
 
 namespace ConsoleApp2
 {
-    class Berserker : KaempferBase
+    class Berserker : Kämpfer
     {
         // berserker bekommen 20% mehr auf stärke
         // 30% weniger rüstung
@@ -29,7 +29,7 @@ namespace ConsoleApp2
             return false;
         }
 
-        public override void Klassenfähigkeit(KaempferBase gegner)
+        public override void Klassenfähigkeit(Kämpfer gegner)
         {
             gegner.Leben -= Angriffskraft;
         }

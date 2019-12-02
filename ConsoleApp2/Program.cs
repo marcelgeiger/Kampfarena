@@ -9,11 +9,11 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             Program p = new Program();
-            KaempferBase k3;
-            KaempferBase k4;
+            Kämpfer k3;
+            Kämpfer k4;
 
-            KaempferBase k1 = new Berserker(200,50,30,30, "Berserker");
-            KaempferBase k2 = new Schurke(200, 50, 30, 30, "Schurke");
+            Kämpfer k1 = new Berserker(200,50,30,30, "Berserker");
+            Kämpfer k2 = new Tank(200, 50, 30, 30, "Tank");
 
             KampfArena arena = new KampfArena(k1, k2);
             arena.Fight();
@@ -35,7 +35,7 @@ namespace ConsoleApp2
 
         }
 
-        KaempferBase DatenfürkriegerSammeln()
+        Kämpfer DatenfürkriegerSammeln()
         {
             Console.WriteLine("(1) = Berserker\n(2) = Magier\n(3) = Schurke \n(4) = Tank \nInfos zu den jeweiligen Klassen findest du unter (5)");
 
@@ -55,10 +55,10 @@ namespace ConsoleApp2
         }
 
 
-        //private KaempferBase SpielerErstellen(int hp, int atk, int speed, int def, string name, int klassenTyp)
+        //private Kämpfer SpielerErstellen(int hp, int atk, int speed, int def, string name, int klassenTyp)
         //{
 
-        //    KaempferBase kaempfer;
+        //    Kämpfer kaempfer;
 
         //    //switch (klassenTyp)
         //    //{
@@ -78,9 +78,9 @@ namespace ConsoleApp2
 
 
         // je höher die schwierigkeit je mehr gegner sind zu besiegen vielleicht?
-        private List<KaempferBase> ComputerGegnerErstellen(int schwierigkeit)
+        private List<Kämpfer> ComputerGegnerErstellen(int schwierigkeit)
         {
-            List<KaempferBase> gegner = new List<KaempferBase>();
+            List<Kämpfer> gegner = new List<Kämpfer>();
 
             return gegner;
 

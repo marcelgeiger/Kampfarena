@@ -2,7 +2,7 @@
 
 namespace ConsoleApp2
 {
-    class Schurke : KaempferBase
+    class Schurke : Kämpfer
     {
         // 50% mehr Speed
         //double schaden;
@@ -30,12 +30,12 @@ namespace ConsoleApp2
             return false;
         }
 
-        public override void Klassenfähigkeit(KaempferBase gegner)
+        public override void Klassenfähigkeit(Kämpfer gegner)
         {
            KritischerAngriff(gegner);
         }
 
-        void KritischerAngriff(KaempferBase gegner)
+        void KritischerAngriff(Kämpfer gegner)
         {
             double schaden = 2 * (this.Angriffskraft * (1 - (gegner.Verteidigungskraft / 100)));
             gegner.Leben = gegner.Leben - schaden;

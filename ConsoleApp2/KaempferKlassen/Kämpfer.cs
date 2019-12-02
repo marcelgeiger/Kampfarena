@@ -2,7 +2,7 @@
 
 namespace ConsoleApp2
 {
-   public abstract class KaempferBase
+   public abstract class Kämpfer
     {
         public  string Name { get; set; }
         public  double Leben { get; set; }
@@ -11,7 +11,7 @@ namespace ConsoleApp2
         public  double Geschwindigkeit { get; set; }
 
         public abstract bool KannFähigkeitBenutzen();
-        public abstract void Klassenfähigkeit(KaempferBase gegner);
+        public abstract void Klassenfähigkeit(Kämpfer gegner);
 
 
     }

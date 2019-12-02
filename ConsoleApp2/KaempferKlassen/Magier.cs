@@ -2,7 +2,7 @@
 
 namespace ConsoleApp2
 {
-    class Magier : KaempferBase
+    class Magier : Kämpfer
     {
         
         public Magier(int leben, int atk, int speed, int def)
@@ -25,7 +25,7 @@ namespace ConsoleApp2
         }
 
 
-        public override void Klassenfähigkeit(KaempferBase gegner)
+        public override void Klassenfähigkeit(Kämpfer gegner)
         {
             //feuer ball schießen
 
