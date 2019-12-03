@@ -18,7 +18,5 @@ namespace ConsoleApp2
         
         public abstract bool KannFähigkeitBenutzen();
         public abstract void Klassenfähigkeit(Kämpfer gegner);
-
-
     }
 }

@@ -25,7 +25,6 @@ namespace ConsoleApp2
             return false;
         }
 
-
         public override void Klassenfähigkeit(Kämpfer gegner)
         {
             if (gegner.Leben < this.Angriffskraft)
