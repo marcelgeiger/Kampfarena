@@ -18,23 +18,14 @@ namespace ConsoleApp2
             this.Name = name;
         }
 
-        public int Block { get; set; }
-
         public override bool KannFähigkeitBenutzen()
         {
-            //50 % auf Block
-            Random rnd = new Random();
-            if (rnd.Next(0, 9) < 5)
-            {
-                return true;
-            }
-
-            return false;
+           return false;
         }
 
         public override void Klassenfähigkeit(Kämpfer gegner)
         {
-            Block += 1;
+          
         }
     }
 }

@@ -39,8 +39,10 @@ namespace ConsoleApp2
         {
             double schaden = 2 * (this.Angriffskraft * (1 - (gegner.Verteidigungskraft / 100)));
             gegner.Leben = gegner.Leben - schaden;
-            Console.WriteLine("{0} macht {1} schaden ", gegner.Name, schaden);
+            Console.WriteLine("Fähigkeit: Der Schurke durchdringt die Deckung seines Gegners und landet einen kritischen treffer!");
+            Console.WriteLine("{0} macht {1} schaden ", this.Name, schaden);
             Console.WriteLine("{0} hat {1} HP", gegner.Name, gegner.Leben);
+            Console.WriteLine("_______________________________________________________________________________");
         }
     }
 }

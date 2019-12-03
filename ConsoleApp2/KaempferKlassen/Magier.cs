@@ -5,12 +5,13 @@ namespace ConsoleApp2
     class Magier : Kämpfer
     {
         
-        public Magier(int leben, int atk, int speed, int def)
+        public Magier(int leben, int atk, int speed, int def, string name)
         {
             this.Leben = (leben * 0.9);
             this.Angriffskraft = (atk * 0.4);
             this.Verteidigungskraft = (def * 0.7);
             this.Geschwindigkeit = (speed * 0.9);
+            this.Name = name;
         }
         public override bool KannFähigkeitBenutzen()
         {
@@ -27,9 +28,23 @@ namespace ConsoleApp2
 
         public override void Klassenfähigkeit(Kämpfer gegner)
         {
-            //feuer ball schießen
+            if (gegner.Leben < this.Angriffskraft)
+            {
+                double schaden = (this.Angriffskraft * (1 - (gegner.Verteidigungskraft / 100)));
+                gegner.Leben = gegner.Leben - schaden;
+                Console.WriteLine("Fähigkeit: Der Magier greift an um seinen Gegner zu töten");
+                Console.WriteLine("{0} macht {1} schaden ", this.Name, schaden);
+                Console.WriteLine("{0} hat {1} HP", gegner.Name, gegner.Leben);
+                Console.WriteLine("_______________________________________________________________________________");
 
-            gegner.Leben = (gegner.Leben * 0.5);
+                return;
+            }
+            //feuer ball schießen
+            var leben = gegner.Leben;
+            gegner.Leben = (gegner.Leben * 0.25);
+            Console.WriteLine("Fähigkeit: Der Magier verwendet einen Zauber der seinem Gegner die Hälfte seines Leben nimmt!");
+            Console.WriteLine("{0} Leben wurde von {1} auf {2} reduziert", gegner.Name, leben, gegner.Leben);
+            Console.WriteLine("_______________________________________________________________________________");
         }
     }
 }

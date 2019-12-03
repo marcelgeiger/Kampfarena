@@ -11,7 +11,7 @@ namespace ConsoleApp2
         public Berserker(int leben, int atk, int speed, int def, string name)
         {
             this.Leben = (leben * 1);
-            this.Angriffskraft = (atk * 1.3);
+            this.Angriffskraft = (atk * 1.5);
             this.Verteidigungskraft = (def * 0.8);
             this.Geschwindigkeit = (speed * 1);
             this.Name = name;
@@ -32,6 +32,10 @@ namespace ConsoleApp2
         public override void Klassenfähigkeit(Kämpfer gegner)
         {
             gegner.Leben -= Angriffskraft;
+            Console.WriteLine("Fähigkeit: Der Schlag des Berserker ist so mächtig das die Rüstung des Gegner keine Auswirkung hat!");
+            Console.WriteLine("{0} macht {1} schaden ", this.Name, Angriffskraft);
+            Console.WriteLine("{0} hat {1} HP", gegner.Name, gegner.Leben);
+            Console.WriteLine("_______________________________________________________________________________");
         }
     }
 }

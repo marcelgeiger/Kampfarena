@@ -12,14 +12,12 @@ namespace ConsoleApp2
             Kämpfer k3;
             Kämpfer k4;
 
-            Kämpfer k1 = new Berserker(200,50,30,30, "Berserker");
-            Kämpfer k2 = new Tank(200, 50, 30, 30, "Tank");
+            Kämpfer k1 = new Magier(200,50,30,30, "Magier");
+            Kämpfer k2 = new Schurke(200, 50, 30, 30, "Schurke");
 
             KampfArena arena = new KampfArena(k1, k2);
             arena.Fight();
-
-
-
+            
             
             Console.WriteLine("Willkommen in der Kampfarena \nMöchtest du gegen einen Freund antreten (1) oder dein Glück allein in der Arena versuchen (2) ?");
 
@@ -30,9 +28,6 @@ namespace ConsoleApp2
             k3 = p.DatenfürkriegerSammeln();
             Console.WriteLine("Spieler 2 ist nun an der reihe");
             k4 = p.DatenfürkriegerSammeln();
-
-         
-
         }
 
         Kämpfer DatenfürkriegerSammeln()
