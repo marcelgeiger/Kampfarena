@@ -17,7 +17,7 @@ namespace ConsoleApp2
             _krieger2 = k2;
 
         }
-
+        // testen obv es geht
         public void Attack(Kämpfer angreifer, Kämpfer gegner)
         {
 
