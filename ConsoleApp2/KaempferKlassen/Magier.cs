@@ -31,15 +31,13 @@ namespace ConsoleApp2
             if (gegner.Leben < this.Angriffskraft)
             {
                 double schaden = (this.Angriffskraft * (1 - (gegner.Verteidigungskraft / 100)));
-                gegner.Leben = gegner.Leben - schaden;
-                Console.WriteLine("Fähigkeit: Der Magier greift an um seinen Gegner zu töten");
-                Console.WriteLine("{0} macht {1} schaden ", this.Name, schaden);
-                Console.WriteLine("{0} hat {1} HP", gegner.Name, gegner.Leben);
+                gegner.Leben = -1;
+                Console.WriteLine("Fähigkeit: Der Magier richtet seinen Gegner hin");
+               Console.WriteLine("{0} hat {1} HP", gegner.Name, gegner.Leben);
                 Console.WriteLine("_______________________________________________________________________________");
 
                 return;
             }
-            //feuer ball schießen
             var leben = gegner.Leben;
             gegner.Leben = (gegner.Leben * 0.25);
             Console.WriteLine("Fähigkeit: Der Magier verwendet einen Zauber der seinem Gegner die Hälfte seines Leben nimmt!");

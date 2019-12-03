@@ -5,8 +5,7 @@ using ConsoleApp2.KaempferKlassen;
 namespace ConsoleApp2
 {
     class KampfArena
-    {
-        private Fähigkeiten _fähigkeit;
+   {
 
         private Kämpfer _krieger1;
         private Kämpfer _krieger2;
@@ -46,37 +45,13 @@ namespace ConsoleApp2
             }
         }
 
-        public void Fight1()
-        {
-            var zweiter = (ErsterDerZuschlägt() == _krieger1) ? _krieger2 : _krieger1;
-
-
-            Attack(ErsterDerZuschlägt(), zweiter);
-            if (zweiter.Leben >= 0)
-            {
-                Attack(zweiter, ErsterDerZuschlägt());
-                if (ErsterDerZuschlägt().Leben <= 0)
-                {
-                    Console.WriteLine("{0} hat gewonnen", zweiter.Name);
-                    return;
-                }
-            }
-            else
-            {
-                Console.WriteLine("{0} hat gewonnen", ErsterDerZuschlägt().Name);
-                return;
-            }
-
-
-            Fight();
-        }
         
         public void Fight()
         {
             var erster = ErsterDerZuschlägt();
             var zweiter = (erster == _krieger1) ? _krieger2 : _krieger1;
-          
-            Thread.Sleep(1000);
+            
+          //  Thread.Sleep(1000);
 
             Attack(erster, zweiter);
             if (zweiter.IsAlive)

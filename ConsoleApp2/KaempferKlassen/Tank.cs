@@ -25,7 +25,7 @@ namespace ConsoleApp2
 
         public override void Klassenfähigkeit(Kämpfer gegner)
         {
-          
+            // wird nicht gebraucht
         }
     }
 }

@@ -15,8 +15,7 @@ namespace ConsoleApp2
         {
             get { return this.Leben > 0; }
         }
-
-
+        
         public abstract bool KannFähigkeitBenutzen();
         public abstract void Klassenfähigkeit(Kämpfer gegner);
 

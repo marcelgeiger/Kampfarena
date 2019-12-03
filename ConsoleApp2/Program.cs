@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Principal;
+using ConsoleApp2.KaempferKlassen;
 
 namespace ConsoleApp2
 {
     class Program
     {
+        KaempferFactory factory = new KaempferFactory();
+
         static void Main(string[] args)
         {
             Program p = new Program();
-            Kämpfer k3;
-            Kämpfer k4;
+            Kämpfer k5;
+            Kämpfer k6;
 
-            Kämpfer k1 = new Magier(200,50,30,30, "Magier");
-            Kämpfer k2 = new Schurke(200, 50, 30, 30, "Schurke");
+            Kämpfer k1 = new Tank(200,50,30,30,"Tank");
+            Kämpfer k2 = new Magier(200,50,30,30,"Magier");
+            Kämpfer k3 = new Schurke(200,50,30,30,"Schurke");
+            Kämpfer k4 = new Berserker(200,50,30,30,"Berserker");
+
 
             KampfArena arena = new KampfArena(k1, k2);
             arena.Fight();
@@ -25,9 +31,9 @@ namespace ConsoleApp2
 
 
             Console.WriteLine("Ihr möchtet also gegen einander antreten \nSpieler eins Bitte wähle nun deine Kämpferklasse");
-            k3 = p.DatenfürkriegerSammeln();
+            k5 = p.DatenfürkriegerSammeln();
             Console.WriteLine("Spieler 2 ist nun an der reihe");
-            k4 = p.DatenfürkriegerSammeln();
+            k6 = p.DatenfürkriegerSammeln();
         }
 
         Kämpfer DatenfürkriegerSammeln()
@@ -45,41 +51,11 @@ namespace ConsoleApp2
             int.TryParse(Console.ReadLine(), out int atk);
             int.TryParse(Console.ReadLine(), out int def);
             int.TryParse(Console.ReadLine(), out int speed);
-            return null;// SpielerErstellen(hp, atk, speed, def, name, klassentyp);
-
+            return factory.SpielerErstellen(hp, atk, speed, def, name, klassentyp);
         }
 
 
-        //private Kämpfer SpielerErstellen(int hp, int atk, int speed, int def, string name, int klassenTyp)
-        //{
 
-        //    Kämpfer kaempfer;
-
-        //    //switch (klassenTyp)
-        //    //{
-        //    //    case 1:
-        //    //        return kaempfer = new Berserker() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
-        //    //    case 2:
-        //    //        return kaempfer = new Magier() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
-        //    //    case 3:
-        //    //        return kaempfer = new Schurke() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
-        //    //    case 4:
-        //    //        return kaempfer = new Tank() { Name = name, Angriffskraft = atk, Geschwindigkeit = speed, Leben = hp, Verteidigungskraft = def };
-        //    //    default:
-        //    //        Console.WriteLine("falsche eingabe");
-        //    //        return null;
-        //    //}
-        //}
-
-
-        // je höher die schwierigkeit je mehr gegner sind zu besiegen vielleicht?
-        private List<Kämpfer> ComputerGegnerErstellen(int schwierigkeit)
-        {
-            List<Kämpfer> gegner = new List<Kämpfer>();
-
-            return gegner;
-
-        }
 
 
 
