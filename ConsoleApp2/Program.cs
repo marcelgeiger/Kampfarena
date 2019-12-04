@@ -37,37 +37,27 @@ namespace ConsoleApp2
             Kämpfer k6;
 
             Console.WriteLine("Ihr möchtet also gegen einander antreten \nSpieler eins Bitte wähle nun deine Kämpferklasse");
-            k5 = p.DatenfürkriegerSammeln();
+            k5 = p.KriegerErstellen();
             Console.WriteLine("Spieler 2 ist nun an der reihe");
-            k6 = p.DatenfürkriegerSammeln();
+            k6 = p.KriegerErstellen();
 
             Console.WriteLine("Mögen die Spiele beginnen");
 
         }
         
 
-        void AlleinSpielen()
+        List<Kämpfer> AlleinSpielen()
         {
             int punkteZuVergeben = 150;
 
             Console.WriteLine("Um dich in der Arena behaupten zu können musst du dir zuerst einen Helden erstellen");
-            Console.WriteLine("(1) = Berserker\n(2) = Magier\n(3) = Schurke \n(4) = Tank \nInfos zu den jeweiligen Klassen findest du unter (5)");
-            Console.WriteLine("Super, nun gib deinem Helden einen Namen");
-            string name = Console.ReadLine();
-            Console.WriteLine("Dein Held braucht einen guten mix aus Attributen, vergebe nun 150 Punkte auf folgende Werte. Dein Held startet jedoch mit 100 Leben");
-            
-            Console.WriteLine("[100]Leben erhöhen ? >> Punkte zu vergeben {0}",punkteZuVergeben);
-           // CheckEingabe(punkteZuVergeben,Console.ReadLine());
-            double hp = Convert.ToDouble(Console.ReadLine());
-            
-            Console.WriteLine("[0]Angriff erhöhen ? >> Punkte zu vergeben {0}",punkteZuVergeben);
-            double atk = Convert.ToDouble(Console.ReadLine());
+            KriegerErstellen();
+            Console.WriteLine("Dein Krieger wurde erfolgreich erstellt\nAuf welchem Schwierigkeitsgrad möchtest du deine Gegner antreffen");
+            int dif = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Gegen wieviele Gegner möchtest du in der Arena antreten");
+            int n = Convert.ToInt32(Console.ReadLine());
+            return factory.ComputerGegnerErstellen(dif, n);
 
-            Console.WriteLine("[0]Abwehr erhöhen ? >> Punkte zu vergeben {0}",punkteZuVergeben);
-            double def = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("[0]Geschwindikeit erhöhen ? >> Punkte zu vergeben {0}",punkteZuVergeben);
-            double speed = Convert.ToDouble(Console.ReadLine());
 
         }
 
@@ -81,9 +71,11 @@ namespace ConsoleApp2
 
         //}
 
-        
 
-        Kämpfer DatenfürkriegerSammeln()
+
+
+
+        Kämpfer KriegerErstellen()
         {
             Console.WriteLine("(1) = Berserker\n(2) = Magier\n(3) = Schurke \n(4) = Tank \nInfos zu den jeweiligen Klassen findest du unter (5)");
 

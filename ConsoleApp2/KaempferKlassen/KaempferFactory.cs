@@ -54,7 +54,7 @@ namespace ConsoleApp2.KaempferKlassen
             return SpielerErstellen(p, p, p, p, name, klassenTyp);
         }
 
-        private List<Kämpfer> ComputerGegnerErstellen(int schwierigkeit, int gegneranzahl)
+        public List<Kämpfer> ComputerGegnerErstellen(int schwierigkeit, int gegneranzahl)
         {
             List<Kämpfer> gegnerListe = new List<Kämpfer>();
 
@@ -65,6 +65,8 @@ namespace ConsoleApp2.KaempferKlassen
             }
             return gegnerListe;
         }
+
+
 
     }
 }
