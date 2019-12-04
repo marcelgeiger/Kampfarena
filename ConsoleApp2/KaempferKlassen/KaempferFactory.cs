@@ -9,7 +9,7 @@ namespace ConsoleApp2.KaempferKlassen
         public Kämpfer SpielerErstellen(int hp, int atk, int speed, int def, string name, int klassenTyp)
         {
 
-            Kämpfer kaempfer;
+           Kämpfer kaempfer;
 
             switch (klassenTyp)
             {
@@ -28,36 +28,32 @@ namespace ConsoleApp2.KaempferKlassen
         }
 
 
-        Kämpfer Schwierigkeitsgrad(int lvl)
+        Kämpfer Schwierigkeitsgrad(int dif)
         {
-            int punktePool = lvl * 10;
+            int p = (dif * 20) / 4;
 
             Random rnd = new Random();
 
-
-            int hp = rnd.Next(0, punktePool);
-            punktePool -= hp;
-            int atk = rnd.Next(0, punktePool);
-            punktePool -= atk;
-            int speed = rnd.Next(0, punktePool);
-            punktePool -= speed;
-            int def = rnd.Next(0, punktePool);
-            punktePool -= def;
-
-            string name = "CP";
             int klassenTyp = rnd.Next(1, 4);
+            string name = "";
 
-            return SpielerErstellen(hp, atk, speed, def, name, klassenTyp);
+            switch (klassenTyp)
+            {
+                case 1: name = "Berserker";
+                    break;
+                case 2: name = "Magier";
+                    break;
+                case 3: name = "Schurke";
+                    break;
+                case 4: name = "Tank";
+                    break;
+                default:
+                    break;
+            }
+
+            return SpielerErstellen(p, p, p, p, name, klassenTyp);
         }
 
-        // von 1-5
-        // 1 = 50 punkte vergabe
-        // 2 = 60
-        // 3 = 70
-        // 4 = 80
-        // 5 = 90
-
-        // 5 gegner
         private List<Kämpfer> ComputerGegnerErstellen(int schwierigkeit, int gegneranzahl)
         {
             List<Kämpfer> gegnerListe = new List<Kämpfer>();

@@ -44,8 +44,7 @@ namespace ConsoleApp2
             Console.WriteLine("Mögen die Spiele beginnen");
 
         }
-
-
+        
 
         void AlleinSpielen()
         {
